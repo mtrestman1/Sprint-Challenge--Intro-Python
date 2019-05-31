@@ -22,6 +22,9 @@ class City:
         self.lat = lat
         self.lon = lon
 
+    def __repr__(self):
+        return f'{self.name}, {self.lat}, {self.lon}'
+
 
 cities = []
 import csv
@@ -38,7 +41,7 @@ def cityreader(cities=[]):
             next(csv_reader)
 
             for line in csv_reader:
-                print(line[0],line[3],line[4])
+                cities.append(City(line[0],line[3],line[4]))
              
     
             return cities
